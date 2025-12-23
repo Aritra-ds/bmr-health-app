@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMR Calculator | BMR Health App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="logo">
+            <h2>BMR Health App</h2>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('health_assessment') }}">Health Assessment</a></li>
+                <li><a href="{{ url_for('diet_plan') }}">Diet Plan</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================= BMR FORM ================= -->
+    <main class="main-content">
+        <section class="form-section">
+            <h1>BMR Calculator</h1>
+            <p>Enter your details to calculate your Basal Metabolic Rate</p>
+
+            <form method="POST" class="form-card">
+
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" name="age" placeholder="Age in years" min="10" max="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select name="gender" required>
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Height (cm)</label>
+                    <input type="number" name="height" placeholder="Height in cm" min="100" max="250" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" name="weight" placeholder="Weight in kg" min="30" max="200" required>
+                </div>
+
+                <button type="submit" class="btn">Calculate BMR</button>
+            </form>
+
+            {% if bmr_result %}
+                <div class="result-card">
+                    <h2>Your BMR Result</h2>
+                    <p><strong>BMR Value:</strong> {{ bmr_result }} kcal/day</p>
+                    <p class="bmr-status">
+                        {{ bmr_message }}
+                    </p>
+                </div>
+            {% endif %}
+
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <p>&copy; 2025 BMR Health App</p>
+        <div class="footer-links">
+            <a href="{{ url_for('terms') }}">Terms & Conditions</a>
+            <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+        </div>
+    </footer>
+
+</body>
+</html>

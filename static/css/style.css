@@ -1,0 +1,281 @@
+/* =========================================================
+   BMR HEALTH APP - PROFESSIONAL STYLESHEET
+========================================================= */
+
+/* -------------------- ROOT VARIABLES -------------------- */
+:root {
+    --primary: #00b4d8;
+    --secondary: #0077b6;
+    --accent: #48cae4;
+    --danger: #ef233c;
+    --success: #2ec4b6;
+    --bg-light: #f9f9f9;
+    --text-dark: #03045e;
+    --text-light: #ffffff;
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* -------------------- GLOBAL RESET -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* -------------------- HEADER -------------------- */
+.header {
+    background-color: var(--primary);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .logo h2 {
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--accent);
+}
+
+/* -------------------- MAIN CONTENT -------------------- */
+.main-content {
+    padding: 3rem 2rem;
+    min-height: 80vh;
+}
+
+/* -------------------- HERO / WELCOME SECTIONS -------------------- */
+.hero-section, .welcome-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-section h1, .welcome-section h1 {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.hero-section p, .welcome-section p {
+    font-size: 1.1rem;
+    color: #03045e;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons a, .dashboard-buttons a {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    margin: 0.5rem;
+    background-color: var(--primary);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons a:hover, .dashboard-buttons a:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* -------------------- FORMS -------------------- */
+.form-section {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-card {
+    background-color: var(--text-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+}
+
+.form-card h1, .form-card h3 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.form-group, .question-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label, .question-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, .form-group select, .question-group select {
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus, .question-group select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* -------------------- BUTTONS -------------------- */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+/* -------------------- RESULTS / CARDS -------------------- */
+.result-card {
+    background-color: #e0f7fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--text-dark);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.result-card h2 {
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.result-card p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.bmr-status {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* -------------------- FOOTER -------------------- */
+.footer {
+    background-color: var(--secondary);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+}
+
+.footer-links {
+    margin-top: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+/* -------------------- CONTENT SECTION -------------------- */
+.content-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--text-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.content-section h1 {
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.content-section h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    .hero-buttons a, .dashboard-buttons a {
+        width: 100%;
+        margin: 0.3rem 0;
+    }
+
+    .form-section, .content-section {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-section h1, .welcome-section h1 {
+        font-size: 2rem;
+    }
+}

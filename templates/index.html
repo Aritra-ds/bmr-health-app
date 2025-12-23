@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMR Health App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="logo">
+            <h2>BMR Health App</h2>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('bmr') }}">BMR Calculator</a></li>
+                    <li><a href="{{ url_for('health_assessment') }}">Health Assessment</a></li>
+                    <li><a href="{{ url_for('diet_plan') }}">Diet Plan</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Create Account</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        {% if current_user.is_authenticated %}
+            <section class="welcome-section">
+                <h1>Welcome, {{ current_user.name }}</h1>
+                <p>
+                    Use the BMR Calculator to understand your metabolism,
+                    assess your health habits, and get a personalized diet plan.
+                </p>
+
+                <div class="dashboard-buttons">
+                    <a href="{{ url_for('bmr') }}" class="btn">Calculate BMR</a>
+                    <a href="{{ url_for('health_assessment') }}" class="btn">Health Assessment</a>
+                    <a href="{{ url_for('diet_plan') }}" class="btn">View Diet Plan</a>
+                </div>
+            </section>
+        {% else %}
+            <section class="hero-section">
+                <h1>Understand Your Body Better</h1>
+                <p>
+                    Calculate your Basal Metabolic Rate, assess health risks,
+                    and get diet recommendations tailored to you.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="{{ url_for('register') }}" class="btn">Create Account</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-outline">Login</a>
+                </div>
+            </section>
+        {% endif %}
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <p>&copy; 2025 BMR Health App</p>
+        <div class="footer-links">
+            <a href="{{ url_for('terms') }}">Terms & Conditions</a>
+            <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+        </div>
+    </footer>
+
+</body>
+</html>
